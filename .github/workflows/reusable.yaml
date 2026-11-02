@@ -1,0 +1,28 @@
+name: Reusable Security Scan
+
+on:
+  workflow_call:
+    inputs:
+      node-version:
+        required: true
+        type: string
+    secrets:
+      api-token:
+        required: false
+
+jobs:
+  security_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Run Audit
+        run: npm audit
+        env:
+          AUTH_TOKEN: ${{ secrets.api-token }}
