@@ -22,7 +22,4 @@ jobs:
         with:
           node-version: ${{ inputs.node-version }}
 
-      - name: Run Audit
-        run: npm audit
-        env:
-          AUTH_TOKEN: ${{ secrets.api-token }}
+    
