@@ -10,7 +10,7 @@ jobs:
     # uses: <organization>/<repo>/.github/workflows/reusable-security-scan.yml@main
     
     # Syntax for a local file within the same repository:
-    uses: ./.github/workflows/reusable.yml@v1
+    uses: ./.github/workflows/reusable.yml@main
     
     with:
       node-version: '20.x'
